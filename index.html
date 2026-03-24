@@ -12,52 +12,45 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: 'Arial Black', Gadget, sans-serif;
+            font-family: 'Arial Black', sans-serif;
         }
 
-        /* BAŞLIK DÜZENLEMESİ: Maksimum Görünürlük */
         .main-title {
-            background-color: #1a237e; /* Koyu Lacivert Arka Plan */
-            color: #ffffff; /* Bembeyaz Yazı */
-            padding: 15px 25px;
-            font-size: 22px;
+            background-color: #1a237e;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-size: 20px;
             font-weight: 900;
             text-align: center;
             text-transform: uppercase;
             margin: 20px 0;
-            border: 4px solid #000; /* Siyah Çerçeve */
-            border-radius: 50px; /* Oval şık bir görünüm */
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
-            width: fit-content;
+            border: 4px solid #000;
+            border-radius: 50px;
+            box-shadow: 4px 4px 0px #000;
         }
 
-        .table-container {
-            width: 100%;
-            max-width: 480px;
-        }
+        .table-container { width: 100%; max-width: 480px; }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            border: 4px solid #000; /* Kalın Dış Çizgi */
-            background-color: transparent;
+            border: 4px solid #000;
         }
 
         th {
-            background-color: #33691e; /* Daha koyu yeşil */
+            background-color: #33691e;
             color: white;
             padding: 12px 5px;
-            font-size: 14px;
-            border: 3px solid #000; /* Kalın Hücre Çizgisi */
-            text-transform: uppercase;
+            border: 3px solid #000;
+            font-size: 13px;
         }
 
         td {
             padding: 12px 5px;
             text-align: center;
             font-weight: 900;
-            font-size: 16px;
-            border: 3px solid #000; /* TÜM KUTULAR ARASI KALIN SİYAH ÇİZGİ */
+            font-size: 15px;
+            border: 3px solid #000;
             color: #000;
         }
 
@@ -67,37 +60,49 @@
         .bg-yellow-light { background-color: #fff59d; }
         .bg-yellow-bright { background-color: #fff176; }
 
+        /* Kurallar Bölümü */
         .footer-text {
-            max-width: 450px;
+            max-width: 480px;
             margin-top: 25px;
             font-family: sans-serif;
             font-size: 15px;
             font-weight: 800;
             color: #000;
+            padding: 0 10px;
         }
 
-        /* 5. KURAL: EN ÖNEMLİSİ */
-        .critical-rule {
-            background-color: #ff1744; /* Parlak Kırmızı */
+        .rule-item { margin-bottom: 12px; line-height: 1.4; }
+
+        /* PATLAYAN 5. KURAL */
+        .boom-rule {
+            background-color: #ff1744; /* Canlı Kırmızı */
             color: white;
-            padding: 15px;
-            border: 4px solid #000;
-            border-radius: 12px;
-            margin-top: 15px;
+            padding: 20px;
+            border: 5px solid #000;
+            border-radius: 15px;
+            margin-top: 20px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            font-size: 18px;
+            box-shadow: 0px 0px 20px rgba(255, 23, 68, 0.6);
+            animation: explosion 1.5s infinite;
         }
 
         .price-box {
             display: block;
             background: #fff;
-            color: #d32f2f;
-            font-size: 28px;
-            margin-top: 8px;
-            padding: 5px;
-            border: 2px solid #000;
-            border-radius: 5px;
+            color: #ff1744;
+            font-size: 32px;
+            font-weight: 900;
+            margin-top: 10px;
+            padding: 10px;
+            border: 4px solid #000;
+            border-radius: 10px;
+            transform: rotate(-2deg); /* Hafif yamuk duruş patlama havası verir */
+        }
+
+        @keyframes explosion {
+            0% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.05); filter: brightness(1.2); box-shadow: 0px 0px 40px rgba(255, 23, 68, 0.9); }
+            100% { transform: scale(1); filter: brightness(1); }
         }
     </style>
 </head>
@@ -133,13 +138,14 @@
     </div>
 
     <div class="footer-text">
-        <p>1. Kimlik doğrulaması şarttır.</p>
-        <p>2. Her hafta Pazartesi günü yüklenir.</p>
-        <p>3. Diğer uygulamalar için %40-%50 arası işlem yapılır.</p>
-        <p>4. Sadece yeni kullanıcılar içindir.</p>
+        <div class="rule-item">1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen <strong>[EKİPLE İLETİŞİME GEÇİN]</strong>)</div>
+        <div class="rule-item">2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.</div>
+        <div class="rule-item">3. Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.</div>
+        <div class="rule-item">4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.</div>
         
-        <div class="critical-rule">
-            5. Süreci başlatmak için yeni kullanıcılar:
+        <div class="boom-rule">
+            <strong>⚠️ ÖNEMLİ KURAL:</strong><br>
+            Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için
             <span class="price-box">20$ YÜKLEMELİDİR.</span>
         </div>
     </div>
