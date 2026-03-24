@@ -8,96 +8,96 @@
         body {
             background-color: #7cd342;
             margin: 0;
-            padding: 15px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Arial Black', Gadget, sans-serif;
         }
 
+        /* BAŞLIK DÜZENLEMESİ: Maksimum Görünürlük */
         .main-title {
-            color: #ccff00; 
-            font-size: 28px;
+            background-color: #1a237e; /* Koyu Lacivert Arka Plan */
+            color: #ffffff; /* Bembeyaz Yazı */
+            padding: 15px 25px;
+            font-size: 22px;
             font-weight: 900;
             text-align: center;
             text-transform: uppercase;
-            margin: 25px 0;
-            text-shadow: 3px 3px 0px #000; /* Başlık iyice belirgin */
+            margin: 20px 0;
+            border: 4px solid #000; /* Siyah Çerçeve */
+            border-radius: 50px; /* Oval şık bir görünüm */
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+            width: fit-content;
         }
 
-        /* TABLO ÇİZGİLERİ BURADA KALINLAŞTI */
+        .table-container {
+            width: 100%;
+            max-width: 480px;
+        }
+
         table {
             width: 100%;
-            max-width: 500px;
             border-collapse: collapse;
-            border: 3px solid #000; /* En dış çerçeve kalın siyah */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border: 4px solid #000; /* Kalın Dış Çizgi */
+            background-color: transparent;
         }
 
         th {
-            background-color: #558b2f;
+            background-color: #33691e; /* Daha koyu yeşil */
             color: white;
-            padding: 12px;
-            font-size: 16px;
-            border: 3px solid #000; /* Başlık hücreleri arası kalın siyah çizgi */
+            padding: 12px 5px;
+            font-size: 14px;
+            border: 3px solid #000; /* Kalın Hücre Çizgisi */
             text-transform: uppercase;
         }
 
         td {
-            padding: 15px 5px;
+            padding: 12px 5px;
             text-align: center;
             font-weight: 900;
-            font-size: 17px;
+            font-size: 16px;
+            border: 3px solid #000; /* TÜM KUTULAR ARASI KALIN SİYAH ÇİZGİ */
             color: #000;
-            border: 3px solid #000; /* KUTULAR ARASINDAKİ ÇİZGİLER BURADA (3px Siyah) */
         }
 
-        /* Renk Grupları */
+        /* Renkler */
         .bg-olive { background-color: #9eb830; }
         .bg-blue { background-color: #81d4fa; }
         .bg-yellow-light { background-color: #fff59d; }
         .bg-yellow-bright { background-color: #fff176; }
 
         .footer-text {
-            max-width: 500px;
-            margin-top: 30px;
-            font-size: 16px;
-            font-weight: 700;
-            color: #000;
-            line-height: 1.6;
-        }
-
-        .rule-item { margin-bottom: 15px; }
-
-        /* 5. KURAL: EN DİKKAT ÇEKİCİ ALAN */
-        .critical-rule {
-            background-color: #ffeb3b; /* Parlak sarı zemin */
-            color: #d32f2f; 
-            padding: 20px;
-            border: 5px solid #d32f2f; /* Kalın kırmızı dış çerçeve */
-            border-radius: 15px;
+            max-width: 450px;
             margin-top: 25px;
-            font-size: 20px;
-            text-align: center;
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
-            animation: pulse 1.5s infinite;
-        }
-
-        .price-tag {
-            font-size: 30px;
-            display: block;
-            margin-top: 10px;
+            font-family: sans-serif;
+            font-size: 15px;
+            font-weight: 800;
             color: #000;
-            background: #fff;
-            border-radius: 5px;
-            padding: 5px;
-            border: 2px solid #d32f2f;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); }
-            100% { transform: scale(1); }
+        /* 5. KURAL: EN ÖNEMLİSİ */
+        .critical-rule {
+            background-color: #ff1744; /* Parlak Kırmızı */
+            color: white;
+            padding: 15px;
+            border: 4px solid #000;
+            border-radius: 12px;
+            margin-top: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-size: 18px;
+        }
+
+        .price-box {
+            display: block;
+            background: #fff;
+            color: #d32f2f;
+            font-size: 28px;
+            margin-top: 8px;
+            padding: 5px;
+            border: 2px solid #000;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -105,45 +105,42 @@
 
     <div class="main-title">MİNA SEVİYE YÜKSELTME POLİTİKASI</div>
 
-    <table>
-        <tr>
-            <th>YOHO SEVİYESİ</th>
-            <th class="bg-blue"></th>
-            <th>MİNA SEVİYESİ</th>
-        </tr>
-        <tr>
-            <td class="bg-olive">30-60</td>
-            <td rowspan="4" class="bg-blue">YOHO -> MİNA</td>
-            <td class="bg-yellow-bright">25</td>
-        </tr>
-        <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">35</td></tr>
-        <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">45</td></tr>
-        <tr><td class="bg-olive">100+</td><td class="bg-yellow-bright">50</td></tr>
+    <div class="table-container">
+        <table>
+            <tr><th>YOHO SEVİYESİ</th><th class="bg-blue"></th><th>MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">30-60</td><td rowspan="4" class="bg-blue">YOHO -> MİNA</td><td class="bg-yellow-bright">25</td></tr>
+            <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">35</td></tr>
+            <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">45</td></tr>
+            <tr><td class="bg-olive">100+</td><td class="bg-yellow-bright">50</td></tr>
 
-        <tr>
-            <th>SOULCHILL</th>
-            <th class="bg-yellow-light"></th>
-            <th>MİNA SEVİYESİ</th>
-        </tr>
-        <tr>
-            <td class="bg-olive">20-60</td>
-            <td rowspan="3" class="bg-yellow-light">SOULCHILL -> MİNA</td>
-            <td class="bg-yellow-bright">20-60</td>
-        </tr>
-        <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">30</td></tr>
-        <tr><td class="bg-olive">60</td><td class="bg-yellow-bright">60</td></tr>
-    </table>
+            <tr><th>HIYA SEVİYESİ</th><th class="bg-yellow-light"></th><th>MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">20</td><td rowspan="4" class="bg-yellow-light">HIYA -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+            <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">25</td></tr>
+            <tr><td class="bg-olive">40</td><td class="bg-yellow-bright">35</td></tr>
+            <tr><td class="bg-olive">50</td><td class="bg-yellow-bright">45</td></tr>
+
+            <tr><th>YOYO SEVİYESİ</th><th class="bg-blue"></th><th>MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">20-40</td><td rowspan="4" class="bg-blue">YOYO -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+            <tr><td class="bg-olive">41-60</td><td class="bg-yellow-bright">30</td></tr>
+            <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">40</td></tr>
+            <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">50</td></tr>
+
+            <tr><th>SOULCHILL</th><th class="bg-yellow-light"></th><th>MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">20</td><td rowspan="3" class="bg-yellow-light">SOULCHILL -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+            <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">30</td></tr>
+            <tr><td class="bg-olive">60</td><td class="bg-yellow-bright">60</td></tr>
+        </table>
+    </div>
 
     <div class="footer-text">
-        <div class="rule-item">1. Resmi ekibimiz kimlik doğrulaması yaptıktan sonra işlem sağlar.</div>
-        <div class="rule-item">2. İşlemler her Pazartesi gerçekleşir.</div>
-        <div class="rule-item">3. Liste dışı uygulamalarda %40-%50 oran uygulanır.</div>
-        <div class="rule-item">4. Sadece yeni kullanıcılar faydalanabilir.</div>
+        <p>1. Kimlik doğrulaması şarttır.</p>
+        <p>2. Her hafta Pazartesi günü yüklenir.</p>
+        <p>3. Diğer uygulamalar için %40-%50 arası işlem yapılır.</p>
+        <p>4. Sadece yeni kullanıcılar içindir.</p>
         
         <div class="critical-rule">
-            <strong>⚠️ EN ÖNEMLİ KURAL:</strong><br>
-            Süreci başlatmak için yeni kullanıcılar
-            <span class="price-tag">20$ YÜKLEMELİDİR.</span>
+            5. Süreci başlatmak için yeni kullanıcılar:
+            <span class="price-box">20$ YÜKLEMELİDİR.</span>
         </div>
     </div>
 
