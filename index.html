@@ -5,85 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mina Seviye Yükseltme Politikası</title>
     <style>
-        :root {
-            --primary-green: #4CAF50;
-            --header-yellow: #FFD700;
-        }
-
+        /* Genel Arka Plan */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f0;
+            background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%); /* Orijinal geçişli yeşil arka plan */
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Ana Kapsayıcı */
         .container {
-            max-width: 600px;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 2px solid var(--primary-green);
+            max-width: 650px;
+            width: 100%;
+            background: transparent; /* Arka planı body'den alır */
         }
 
+        /* Ana Başlık */
         h1 {
-            color: #2e7d32;
+            color: #d1ff33; /* Orijinal parlak yeşil/sarı */
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            border-bottom: 3px solid var(--header-yellow);
-            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.5); /* Hafif gölge */
+            letter-spacing: 1px;
         }
 
+        /* Tablo Stilleri */
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 25px;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden; /* Kenarları yuvarlamak için */
+            border: 2px solid #558b2f; /* Koyu yeşil çerçeve */
+            background-color: transparent;
         }
 
+        /* Tablo Başlıkları (Ana Uygulama İsimleri) */
         th {
-            background-color: var(--primary-green);
+            background-color: #558b2f; /* Koyu yeşil */
             color: white;
             padding: 12px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            text-align: center;
+            border-right: 1px solid #7cb342;
         }
 
+        /* Son başlık hücresi çerçevesi */
+        th:last-child {
+            border-right: none;
+        }
+
+        /* Genel Veri Hücreleri */
         td {
             padding: 10px;
             text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        .category-row {
-            background-color: #e8f5e9;
             font-weight: bold;
-            color: #2e7d32;
+            font-size: 1.1rem;
+            border-right: 1px solid #a4b42b; /* İnce açık yeşil sınır */
+            border-bottom: 1px solid #a4b42b;
         }
 
+        /* Son sütun çerçevesi temizliği */
+        td:last-child {
+            border-right: none;
+        }
+
+        /* Sol Taraftaki Uygulama Seviye Sütunları (Açık Yeşil) */
+        .level-col {
+            background-color: #a4b42b;
+            color: #1a1a1a;
+            width: 35%;
+        }
+
+        /* Orta Geçiş Sütunu (Mavi ve Sarı) */
         .transfer-col {
-            background-color: #00bcd4;
-            color: white;
-            font-weight: bold;
-            vertical-align: middle;
+            color: #1a1a1a;
+            width: 30%;
+            vertical-align: middle; /* Metni dikeyde ortala */
+            border-right: 1px solid #558b2f;
         }
 
+        /* Sağ Taraftaki Mina Seviye Sütunları (Sarı) */
         .mina-col {
             background-color: #fff176;
-            font-weight: bold;
+            color: #1a1a1a;
+            width: 35%;
         }
 
+        /* Orta Sütun Renkleri (Görsele Göre) */
+        .mavi-gecis {
+            background-color: #81d4fa; /* Açık mavi */
+        }
+
+        .sari-gecis {
+            background-color: #fff59d; /* Açık sarı */
+        }
+
+        /* Maddeler Bölümü */
         .rules {
-            background: #fffde7;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 5px solid var(--header-yellow);
+            background-color: transparent;
+            color: #1a1a1a;
+            padding: 0 10px;
+        }
+
+        .rules ol {
+            padding-left: 20px;
+            margin: 0;
+            list-style-type: decimal;
         }
 
         .rules li {
-            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 12px;
             line-height: 1.4;
+        }
+
+        /* Kalınlaştırılmış Parantez İçleri */
+        .rules strong {
+            font-weight: 800;
+        }
+
+        /* Kırmızı 20$ Vurgusu */
+        .money-highlight {
+            color: #ff5252;
+            font-weight: 800;
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 500px) {
+            h1 { font-size: 1.6rem; }
+            td, th { padding: 8px; font-size: 0.9rem; }
+            .container { padding: 0 5px; }
         }
     </style>
 </head>
@@ -93,41 +156,98 @@
     <h1>MİNA SEVİYE YÜKSELTME POLİTİKASI</h1>
 
     <table>
-        <thead>
-            <tr>
-                <th>UYGULAMA SEVİYESİ</th>
-                <th>GEÇİŞ</th>
-                <th>MİNA SEVİYESİ</th>
-            </tr>
-        </thead>
-        
-        <tr class="category-row"><td colspan="3">YOHO SEVİYESİ</td></tr>
-        <tr><td>30-60</td><td rowspan="2" class="transfer-col">YOHO -> MİNA</td><td class="mina-col">25</td></tr>
-        <tr><td>61-100+</td><td class="mina-col">35-50</td></tr>
-
-        <tr class="category-row"><td colspan="3">HIYA SEVİYESİ</td></tr>
-        <tr><td>20-50</td><td class="transfer-col" style="background-color:#fbc02d">HIYA -> MİNA</td><td class="mina-col">20-45</td></tr>
-
-        <tr class="category-row"><td colspan="3">YOYO SEVİYESİ</td></tr>
-        <tr><td>20-100</td><td class="transfer-col">YOYO -> MİNA</td><td class="mina-col">20-50</td></tr>
-
-        <tr class="category-row"><td colspan="3">SOULCHILL</td></tr>
         <tr>
-            <td>20</td>
-            <td rowspan="3" class="transfer-col" style="background-color: #fbc02d; color: #333;">SOULCHILL -> MİNA</td>
+            <th>YOHO SEVİYESİ</th>
+            <th style="background-color: #81d4fa; border-right: 1px solid #558b2f;"></th> <th>MİNA SEVİYESİ</th>
+        </tr>
+        <tr>
+            <td class="level-col">30-60</td>
+            <td rowspan="4" class="transfer-col mavi-gecis">YOHO -> MİNA</td>
+            <td class="mina-col">25</td>
+        </tr>
+        <tr>
+            <td class="level-col">61-80</td>
+            <td class="mina-col">35</td>
+        </tr>
+        <tr>
+            <td class="level-col">81-100</td>
+            <td class="mina-col">45</td>
+        </tr>
+        <tr>
+            <td class="level-col">100+</td>
+            <td class="mina-col">50</td>
+        </tr>
+
+        <tr>
+            <th>HIYA SEVİYESİ</th>
+            <th style="background-color: #fff59d; border-right: 1px solid #558b2f;"></th> <th>MİNA SEVİYESİ</th>
+        </tr>
+        <tr>
+            <td class="level-col">20</td>
+            <td rowspan="4" class="transfer-col sari-gecis">HIYA -> MİNA</td>
             <td class="mina-col">20</td>
         </tr>
-        <tr><td>30</td><td class="mina-col">30</td></tr>
-        <tr><td>60</td><td class="mina-col">60</td></tr>
+        <tr>
+            <td class="level-col">30</td>
+            <td class="mina-col">25</td>
+        </tr>
+        <tr>
+            <td class="level-col">40</td>
+            <td class="mina-col">35</td>
+        </tr>
+        <tr>
+            <td class="level-col">50</td>
+            <td class="mina-col">45</td>
+        </tr>
+
+        <tr>
+            <th>YOYO SEVİYESİ</th>
+            <th style="background-color: #81d4fa; border-right: 1px solid #558b2f;"></th> <th>MİNA SEVİYESİ</th>
+        </tr>
+        <tr>
+            <td class="level-col">20-40</td>
+            <td rowspan="4" class="transfer-col mavi-gecis">YOYO -> MİNA</td>
+            <td class="mina-col">20</td>
+        </tr>
+        <tr>
+            <td class="level-col">41-60</td>
+            <td class="mina-col">30</td>
+        </tr>
+        <tr>
+            <td class="level-col">61-80</td>
+            <td class="mina-col">40</td>
+        </tr>
+        <tr>
+            <td class="level-col">81-100</td>
+            <td class="mina-col">50</td>
+        </tr>
+
+        <tr>
+            <th>OLA PARTY</th>
+            <th style="background-color: #fff59d; border-right: 1px solid #558b2f;"></th> <th>MİNA SEVİYESİ</th>
+        </tr>
+        <tr>
+            <td class="level-col">20</td>
+            <td rowspan="3" class="transfer-col sari-gecis">OLAPARTY -> MİNA</td>
+            <td class="mina-col">20</td>
+        </tr>
+        <tr>
+            <td class="level-col">30</td>
+            <td class="mina-col">30</td>
+        </tr>
+        <tr>
+            <td class="level-col">60</td>
+            <td class="mina-col">60</td>
+        </tr>
     </table>
 
     <div class="rules">
         <ol>
-            <li>Önceki uygulama kimliği doğrulandıktan sonra işlem yapılır.</li>
-            <li>Yüklemeler her <strong>Pazartesi</strong> gerçekleşir.</li>
-            <li>Diğer uygulamalar için <strong>%40-%50</strong> arası artış uygulanır.</li>
-            <li>Sadece <strong>yeni kullanıcılar</strong> içindir.</li>
-            <li>Süreci başlatmak için <strong>20$ yükleme</strong> gereklidir.</li>
+            <li>Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen <strong>[EKİPLE İLETİŞİME GEÇİN]</strong>)</li>
+            <li>Seviye yükseltme her hafta Pazartesi günü yapılacaktır.</li>
+            <li>Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.</li>
+            <li>Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.</li>
+            <li>Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için <span class="money-highlight">20$</span> yüklemelidir.</li>
         </ol>
     </div>
 </div>
