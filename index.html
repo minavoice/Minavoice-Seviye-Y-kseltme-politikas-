@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina Seviye Yükseltme Politikası</title>
+    <style>
+        :root {
+            --primary-green: #4CAF50;
+            --header-yellow: #FFD700;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--primary-green);
+        }
+
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--header-yellow);
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        th {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .category-row {
+            background-color: #e8f5e9;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .transfer-col {
+            background-color: #00bcd4;
+            color: white;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .mina-col {
+            background-color: #fff176;
+            font-weight: bold;
+        }
+
+        .rules {
+            background: #fffde7;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid var(--header-yellow);
+        }
+
+        .rules li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MİNA SEVİYE YÜKSELTME POLİTİKASI</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>UYGULAMA SEVİYESİ</th>
+                <th>GEÇİŞ</th>
+                <th>MİNA SEVİYESİ</th>
+            </tr>
+        </thead>
+        
+        <tr class="category-row"><td colspan="3">YOHO SEVİYESİ</td></tr>
+        <tr><td>30-60</td><td rowspan="2" class="transfer-col">YOHO -> MİNA</td><td class="mina-col">25</td></tr>
+        <tr><td>61-100+</td><td class="mina-col">35-50</td></tr>
+
+        <tr class="category-row"><td colspan="3">HIYA SEVİYESİ</td></tr>
+        <tr><td>20-50</td><td class="transfer-col" style="background-color:#fbc02d">HIYA -> MİNA</td><td class="mina-col">20-45</td></tr>
+
+        <tr class="category-row"><td colspan="3">YOYO SEVİYESİ</td></tr>
+        <tr><td>20-100</td><td class="transfer-col">YOYO -> MİNA</td><td class="mina-col">20-50</td></tr>
+
+        <tr class="category-row"><td colspan="3">SOULCHILL</td></tr>
+        <tr>
+            <td>20</td>
+            <td rowspan="3" class="transfer-col" style="background-color: #fbc02d; color: #333;">SOULCHILL -> MİNA</td>
+            <td class="mina-col">20</td>
+        </tr>
+        <tr><td>30</td><td class="mina-col">30</td></tr>
+        <tr><td>60</td><td class="mina-col">60</td></tr>
+    </table>
+
+    <div class="rules">
+        <ol>
+            <li>Önceki uygulama kimliği doğrulandıktan sonra işlem yapılır.</li>
+            <li>Yüklemeler her <strong>Pazartesi</strong> gerçekleşir.</li>
+            <li>Diğer uygulamalar için <strong>%40-%50</strong> arası artış uygulanır.</li>
+            <li>Sadece <strong>yeni kullanıcılar</strong> içindir.</li>
+            <li>Süreci başlatmak için <strong>20$ yükleme</strong> gereklidir.</li>
+        </ol>
+    </div>
+</div>
+
+</body>
+</html>
