@@ -15,112 +15,174 @@
             font-family: 'Arial Black', sans-serif;
         }
 
+        /* Dil Butonları */
         .lang-container { margin: 15px 0; display: flex; gap: 10px; }
         .lang-btn {
-            padding: 8px 15px; border: 3px solid #000; border-radius: 20px;
-            cursor: pointer; font-weight: 900; background: #fff; transition: 0.3s;
+            padding: 10px 20px; border: 4px solid #000; border-radius: 50px;
+            cursor: pointer; font-weight: 900; background: #fff; transition: 0.2s;
+            box-shadow: 3px 3px 0px #000;
         }
-        .lang-btn.active { background: #1a237e; color: #fff; }
+        .lang-btn.active { background: #1a237e; color: #fff; transform: translate(2px, 2px); box-shadow: 1px 1px 0px #000; }
 
         .main-title {
             background-color: #1a237e; color: #ffffff; padding: 15px 20px;
-            font-size: 18px; font-weight: 900; text-align: center;
+            font-size: 19px; font-weight: 900; text-align: center;
             text-transform: uppercase; margin-bottom: 20px;
             border: 4px solid #000; border-radius: 50px; box-shadow: 4px 4px 0px #000;
         }
 
         .table-container { width: 100%; max-width: 480px; }
-        table { width: 100%; border-collapse: collapse; border: 4px solid #000; }
-        th { background-color: #33691e; color: white; padding: 12px 5px; border: 3px solid #000; font-size: 12px; }
-        td { padding: 12px 5px; text-align: center; font-weight: 900; font-size: 14px; border: 3px solid #000; color: #000; }
+        table { width: 100%; border-collapse: collapse; border: 4px solid #000; background: #fff; }
+        th { background-color: #33691e; color: white; padding: 12px 5px; border: 3px solid #000; font-size: 13px; }
+        td { padding: 12px 5px; text-align: center; font-weight: 900; font-size: 15px; border: 3px solid #000; color: #000; }
 
         .bg-olive { background-color: #9eb830; }
         .bg-blue { background-color: #81d4fa; }
         .bg-yellow-light { background-color: #fff59d; }
         .bg-yellow-bright { background-color: #fff176; }
 
-        .footer-text { max-width: 480px; margin-top: 25px; font-family: sans-serif; font-size: 14px; font-weight: 800; color: #000; padding: 0 10px; }
+        .footer-text { max-width: 480px; margin-top: 25px; font-family: sans-serif; font-size: 15px; font-weight: 800; color: #000; padding: 0 10px; }
         .rule-item { margin-bottom: 12px; line-height: 1.4; }
 
         .boom-rule {
             background-color: #ff1744; color: white; padding: 20px; border: 5px solid #000;
-            border-radius: 15px; margin-top: 20px; text-align: center; animation: explosion 1.5s infinite;
+            border-radius: 15px; margin-top: 20px; text-align: center; box-shadow: 0px 0px 20px rgba(255, 23, 68, 0.6);
+            animation: explosion 1.5s infinite;
         }
         .price-box {
-            display: block; background: #fff; color: #ff1744; font-size: 28px;
+            display: block; background: #fff; color: #ff1744; font-size: 32px;
             font-weight: 900; margin-top: 10px; padding: 10px; border: 4px solid #000; border-radius: 10px; transform: rotate(-2deg);
         }
 
         @keyframes explosion {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); filter: brightness(1.1); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.05); filter: brightness(1.2); }
+            100% { transform: scale(1); filter: brightness(1); }
         }
     </style>
 </head>
 <body>
 
     <div class="lang-container">
-        <div id="btn-tr" class="lang-btn active" onclick="changeLang('tr')">Türkiye 🇹🇷</div>
-        <div id="btn-az" class="lang-btn" onclick="changeLang('az')">Azərbaycan 🇦🇿</div>
+        <div id="btn-tr" class="lang-btn active" onclick="setLang('tr')">Türkiye 🇹🇷</div>
+        <div id="btn-az" class="lang-btn" onclick="setLang('az')">Azərbaycan 🇦🇿</div>
     </div>
 
-    <div class="main-title" id="txt-title">MİNA SEVİYE YÜKSELTME POLİTİKASI</div>
+    <div class="main-title" id="t-main">MİNA SEVİYE YÜKSELTME POLİTİKASI</div>
 
     <div class="table-container">
         <table>
-            <thead>
-                <tr>
-                    <th id="th-app">UYGULAMA SEVİYESİ</th>
-                    <th class="bg-blue">---</th>
-                    <th id="th-mina">MİNA SEVİYESİ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="bg-olive">30-60</td><td rowspan="4" class="bg-blue lang-map">YOHO -> MİNA</td><td class="bg-yellow-bright">25</td></tr>
-                <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">35</td></tr>
-                <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">45</td></tr>
-                <tr><td class="bg-olive">100+</td><td class="bg-yellow-bright">50</td></tr>
+            <tr><th class="t-yoho-head">YOHO SEVİYESİ</th><th class="bg-blue"></th><th class="t-mina-head">MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">30-60</td><td rowspan="4" class="bg-blue t-yoho-map">YOHO -> MİNA</td><td class="bg-yellow-bright">25</td></tr>
+            <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">35</td></tr>
+            <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">45</td></tr>
+            <tr><td class="bg-olive">100+</td><td class="bg-yellow-bright">50</td></tr>
 
-                <tr><th id="th-hiya">HIYA SEVİYESİ</th><th class="bg-yellow-light">---</th><th id="th-mina2">MİNA SEVİYESİ</th></tr>
-                <tr><td class="bg-olive">20</td><td rowspan="4" class="bg-yellow-light lang-map">HIYA -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
-                <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">25</td></tr>
-                <tr><td class="bg-olive">40</td><td class="bg-yellow-bright">35</td></tr>
-                <tr><td class="bg-olive">50</td><td class="bg-yellow-bright">45</td></tr>
+            <tr><th class="t-hiya-head">HIYA SEVİYESİ</th><th class="bg-yellow-light"></th><th class="t-mina-head">MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">20</td><td rowspan="4" class="bg-yellow-light t-hiya-map">HIYA -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+            <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">25</td></tr>
+            <tr><td class="bg-olive">40</td><td class="bg-yellow-bright">35</td></tr>
+            <tr><td class="bg-olive">50</td><td class="bg-yellow-bright">45</td></tr>
 
-                <tr><th id="th-yoyo">YOYO SEVİYESİ</th><th class="bg-blue">---</th><th id="th-mina3">MİNA SEVİYESİ</th></tr>
-                <tr><td class="bg-olive">20-40</td><td rowspan="4" class="bg-blue lang-map">YOYO -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
-                <tr><td class="bg-olive">41-60</td><td class="bg-yellow-bright">30</td></tr>
-                <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">40</td></tr>
-                <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">50</td></tr>
-            </tbody>
+            <tr><th class="t-yoyo-head">YOYO SEVİYESİ</th><th class="bg-blue"></th><th class="t-mina-head">MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">20-40</td><td rowspan="4" class="bg-blue t-yoyo-map">YOYO -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+            <tr><td class="bg-olive">41-60</td><td class="bg-yellow-bright">30</td></tr>
+            <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">40</td></tr>
+            <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">50</td></tr>
+
+            <tr><th class="t-soul-head">SOULCHILL</th><th class="bg-yellow-light"></th><th class="t-mina-head">MİNA SEVİYESİ</th></tr>
+            <tr><td class="bg-olive">20</td><td rowspan="3" class="bg-yellow-light t-soul-map">SOULCHILL -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+            <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">30</td></tr>
+            <tr><td class="bg-olive">60</td><td class="bg-yellow-bright">60</td></tr>
         </table>
     </div>
 
     <div class="footer-text">
-        <div class="rule-item" id="r1">1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak...</div>
+        <div class="rule-item" id="r1">1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen <strong>[TR01-TR05 İLE İLETİŞİME GEÇİN]</strong>)</div>
         <div class="rule-item" id="r2">2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.</div>
-        <div class="rule-item" id="r3">3. Bu uygulamada verilen uygulamanın dışında başka bir uygulama...</div>
+        <div class="rule-item" id="r3">3. Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.</div>
         <div class="rule-item" id="r4">4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.</div>
         
         <div class="boom-rule">
-            <strong id="txt-warn">⚠️ ÖNEMLİ KURAL:</strong><br>
-            <span id="txt-desc">Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için</span>
-            <span class="price-box" id="txt-price">20$ YÜKLEMELİDİR.</span>
+            <strong id="t-warn">⚠️ ÖNEMLİ KURAL:</strong><br>
+            <span id="t-desc">Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için</span>
+            <span class="price-box" id="t-price">20$ YÜKLEMELİDİR.</span>
         </div>
     </div>
 
     <script>
-        const translations = {
+        const dict = {
             tr: {
-                title: "MİNA SEVİYE YÜKSELTME POLİTİKASI",
-                app: "UYGULAMA SEVİYESİ",
-                mina: "MİNA SEVİYESİ",
-                mapYoho: "YOHO -> MİNA",
-                mapHiya: "HIYA -> MİNA",
-                mapYoyo: "YOYO -> MİNA",
+                main: "MİNA SEVİYE YÜKSELTME POLİTİKASI",
+                minaHead: "MİNA SEVİYESİ",
+                yohoHead: "YOHO SEVİYESİ",
+                hiyaHead: "HIYA SEVİYESİ",
+                yoyoHead: "YOYO SEVİYESİ",
+                soulHead: "SOULCHILL",
+                yohoMap: "YOHO -> MİNA",
+                hiyaMap: "HIYA -> MİNA",
+                yoyoMap: "YOYO -> MİNA",
+                soulMap: "SOULCHILL -> MİNA",
                 r1: "1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen [TR01-TR05 İLE İLETİŞİME GEÇİN])",
                 r2: "2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.",
                 r3: "3. Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.",
-                r4: "4. Seviye yükseltme, yalnızca
-        
+                r4: "4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.",
+                warn: "⚠️ ÖNEMLİ KURAL:",
+                desc: "Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için",
+                price: "20$ YÜKLEMELİDİR."
+            },
+            az: {
+                main: "MİNA SƏVİYYƏ QALDIRMA SİYASƏTİ",
+                minaHead: "MİNA SƏVİYYƏSİ",
+                yohoHead: "YOHO SƏVİYYƏSİ",
+                hiyaHead: "HIYA SƏVİYYƏSİ",
+                yoyoHead: "YOYO SƏVİYYƏSİ",
+                soulHead: "SOULCHILL",
+                yohoMap: "YOHO -> MİNA",
+                hiyaMap: "HIYA -> MİNA",
+                yoyoMap: "YOYO -> MİNA",
+                soulMap: "SOULCHILL -> MİNA",
+                r1: "1. Rəsmi komandamız əvvəlcə istifadəçinin əvvəlki tətbiq ID-sini təsdiqləyəcək və sonra səviyyə qaldırılacaq. (Təsdiqləmə üçün [TR01-TR05 İLƏ ƏLAQƏ SAXLAYIN])",
+                r2: "2. Səviyyə qaldırılması hər həftənin Bazar ertəsi günü həyata keçiriləcək.",
+                r3: "3. Bu siyahıda olmayan başqa bir tətbiqin ID-si varsa, %40-%50 arası səviyyə qaldırma tətbiq olunur.",
+                r4: "4. Səviyyə qaldırma yalnız Mina-nı ilk dəfə yükləyən yeni istifadəçilər üçündür.",
+                warn: "⚠️ VACİB QAYDA:",
+                desc: "Yeni istifadəçilər səviyyə qaldırma prosesini başlatmaq üçün",
+                price: "20$ YÜKLƏMƏLİDİR."
+            }
+        };
+
+        function setLang(l) {
+            // Başlıklar
+            document.getElementById('t-main').innerText = dict[l].main;
+            document.querySelectorAll('.t-mina-head').forEach(x => x.innerText = dict[l].minaHead);
+            document.querySelector('.t-yoho-head').innerText = dict[l].yohoHead;
+            document.querySelector('.t-hiya-head').innerText = dict[l].hiyaHead;
+            document.querySelector('.t-yoyo-head').innerText = dict[l].yoyoHead;
+            document.querySelector('.t-soul-head').innerText = dict[l].soulHead;
+            
+            // Tablo İçi Oklar
+            document.querySelectorAll('.t-yoho-map').forEach(x => x.innerText = dict[l].yohoMap);
+            document.querySelectorAll('.t-hiya-map').forEach(x => x.innerText = dict[l].hiyaMap);
+            document.querySelectorAll('.t-yoyo-map').forEach(x => x.innerText = dict[l].yoyoMap);
+            document.querySelectorAll('.t-soul-map').forEach(x => x.innerText = dict[l].soulMap);
+
+            // Alt Kurallar
+            document.getElementById('r1').innerText = dict[l].r1;
+            document.getElementById('r2').innerText = dict[l].r2;
+            document.getElementById('r3').innerText = dict[l].r3;
+            document.getElementById('r4').innerText = dict[l].r4;
+
+            // Patlayan Bölüm
+            document.getElementById('t-warn').innerText = dict[l].warn;
+            document.getElementById('t-desc').innerText = dict[l].desc;
+            document.getElementById('t-price').innerText = dict[l].price;
+
+            // Buton Aktifliği
+            document.getElementById('btn-tr').classList.toggle('active', l==='tr');
+            document.getElementById('btn-az').classList.toggle('active', l==='az');
+        }
+    </script>
+</body>
+</html>
+
