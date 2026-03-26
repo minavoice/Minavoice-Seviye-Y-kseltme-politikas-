@@ -15,111 +15,46 @@
             font-family: 'Arial Black', sans-serif;
         }
 
-        /* Dil Butonları Stili */
-        .lang-container {
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-        }
+        .lang-container { margin: 15px 0; display: flex; gap: 10px; }
         .lang-btn {
-            padding: 8px 15px;
-            border: 3px solid #000;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 900;
-            background: #fff;
-            transition: 0.3s;
+            padding: 8px 15px; border: 3px solid #000; border-radius: 20px;
+            cursor: pointer; font-weight: 900; background: #fff; transition: 0.3s;
         }
-        .lang-btn.active {
-            background: #1a237e;
-            color: #fff;
-        }
+        .lang-btn.active { background: #1a237e; color: #fff; }
 
         .main-title {
-            background-color: #1a237e;
-            color: #ffffff;
-            padding: 15px 20px;
-            font-size: 20px;
-            font-weight: 900;
-            text-align: center;
-            text-transform: uppercase;
-            margin: 20px 0;
-            border: 4px solid #000;
-            border-radius: 50px;
-            box-shadow: 4px 4px 0px #000;
+            background-color: #1a237e; color: #ffffff; padding: 15px 20px;
+            font-size: 18px; font-weight: 900; text-align: center;
+            text-transform: uppercase; margin-bottom: 20px;
+            border: 4px solid #000; border-radius: 50px; box-shadow: 4px 4px 0px #000;
         }
 
         .table-container { width: 100%; max-width: 480px; }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 4px solid #000;
-        }
-
-        th {
-            background-color: #33691e;
-            color: white;
-            padding: 12px 5px;
-            border: 3px solid #000;
-            font-size: 13px;
-        }
-
-        td {
-            padding: 12px 5px;
-            text-align: center;
-            font-weight: 900;
-            font-size: 15px;
-            border: 3px solid #000;
-            color: #000;
-        }
+        table { width: 100%; border-collapse: collapse; border: 4px solid #000; }
+        th { background-color: #33691e; color: white; padding: 12px 5px; border: 3px solid #000; font-size: 12px; }
+        td { padding: 12px 5px; text-align: center; font-weight: 900; font-size: 14px; border: 3px solid #000; color: #000; }
 
         .bg-olive { background-color: #9eb830; }
         .bg-blue { background-color: #81d4fa; }
         .bg-yellow-light { background-color: #fff59d; }
         .bg-yellow-bright { background-color: #fff176; }
 
-        .footer-text {
-            max-width: 480px;
-            margin-top: 25px;
-            font-family: sans-serif;
-            font-size: 15px;
-            font-weight: 800;
-            color: #000;
-            padding: 0 10px;
-        }
-
+        .footer-text { max-width: 480px; margin-top: 25px; font-family: sans-serif; font-size: 14px; font-weight: 800; color: #000; padding: 0 10px; }
         .rule-item { margin-bottom: 12px; line-height: 1.4; }
 
         .boom-rule {
-            background-color: #ff1744;
-            color: white;
-            padding: 20px;
-            border: 5px solid #000;
-            border-radius: 15px;
-            margin-top: 20px;
-            text-align: center;
-            box-shadow: 0px 0px 20px rgba(255, 23, 68, 0.6);
-            animation: explosion 1.5s infinite;
+            background-color: #ff1744; color: white; padding: 20px; border: 5px solid #000;
+            border-radius: 15px; margin-top: 20px; text-align: center; animation: explosion 1.5s infinite;
         }
-
         .price-box {
-            display: block;
-            background: #fff;
-            color: #ff1744;
-            font-size: 32px;
-            font-weight: 900;
-            margin-top: 10px;
-            padding: 10px;
-            border: 4px solid #000;
-            border-radius: 10px;
-            transform: rotate(-2deg);
+            display: block; background: #fff; color: #ff1744; font-size: 28px;
+            font-weight: 900; margin-top: 10px; padding: 10px; border: 4px solid #000; border-radius: 10px; transform: rotate(-2deg);
         }
 
         @keyframes explosion {
-            0% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.05); filter: brightness(1.2); }
-            100% { transform: scale(1); filter: brightness(1); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); filter: brightness(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -130,89 +65,62 @@
         <div id="btn-az" class="lang-btn" onclick="changeLang('az')">Azərbaycan 🇦🇿</div>
     </div>
 
-    <div class="main-title" id="txt-main-title">MİNA SEVİYE YÜKSELTME POLİTİKASI</div>
+    <div class="main-title" id="txt-title">MİNA SEVİYE YÜKSELTME POLİTİKASI</div>
 
     <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th id="th-app-level">UYGULAMA SEVİYESİ</th>
-                    <th class="bg-blue"></th>
-                    <th id="th-mina-level">MİNA SEVİYESİ</th>
+                    <th id="th-app">UYGULAMA SEVİYESİ</th>
+                    <th class="bg-blue">---</th>
+                    <th id="th-mina">MİNA SEVİYESİ</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td class="bg-olive">30-60</td><td rowspan="4" class="bg-blue">YOHO -> MİNA</td><td class="bg-yellow-bright">25</td></tr>
+                <tr><td class="bg-olive">30-60</td><td rowspan="4" class="bg-blue lang-map">YOHO -> MİNA</td><td class="bg-yellow-bright">25</td></tr>
                 <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">35</td></tr>
                 <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">45</td></tr>
                 <tr><td class="bg-olive">100+</td><td class="bg-yellow-bright">50</td></tr>
-                </tbody>
+
+                <tr><th id="th-hiya">HIYA SEVİYESİ</th><th class="bg-yellow-light">---</th><th id="th-mina2">MİNA SEVİYESİ</th></tr>
+                <tr><td class="bg-olive">20</td><td rowspan="4" class="bg-yellow-light lang-map">HIYA -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+                <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">25</td></tr>
+                <tr><td class="bg-olive">40</td><td class="bg-yellow-bright">35</td></tr>
+                <tr><td class="bg-olive">50</td><td class="bg-yellow-bright">45</td></tr>
+
+                <tr><th id="th-yoyo">YOYO SEVİYESİ</th><th class="bg-blue">---</th><th id="th-mina3">MİNA SEVİYESİ</th></tr>
+                <tr><td class="bg-olive">20-40</td><td rowspan="4" class="bg-blue lang-map">YOYO -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
+                <tr><td class="bg-olive">41-60</td><td class="bg-yellow-bright">30</td></tr>
+                <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">40</td></tr>
+                <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">50</td></tr>
+            </tbody>
         </table>
     </div>
 
     <div class="footer-text">
-        <div class="rule-item" id="rule-1">1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak...</div>
-        <div class="rule-item" id="rule-2">2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.</div>
-        <div class="rule-item" id="rule-3">3. Bu uygulamada verilen uygulamanın dışında başka bir uygulama...</div>
-        <div class="rule-item" id="rule-4">4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.</div>
+        <div class="rule-item" id="r1">1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak...</div>
+        <div class="rule-item" id="r2">2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.</div>
+        <div class="rule-item" id="r3">3. Bu uygulamada verilen uygulamanın dışında başka bir uygulama...</div>
+        <div class="rule-item" id="r4">4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.</div>
         
         <div class="boom-rule">
-            <strong id="txt-important">⚠️ ÖNEMLİ KURAL:</strong><br>
-            <span id="txt-process-desc">Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için</span>
+            <strong id="txt-warn">⚠️ ÖNEMLİ KURAL:</strong><br>
+            <span id="txt-desc">Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için</span>
             <span class="price-box" id="txt-price">20$ YÜKLEMELİDİR.</span>
         </div>
     </div>
 
     <script>
-        const langData = {
+        const translations = {
             tr: {
                 title: "MİNA SEVİYE YÜKSELTME POLİTİKASI",
-                appLevel: "UYGULAMA SEVİYESİ",
-                minaLevel: "MİNA SEVİYESİ",
-                rule1: "1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen [TR01-TR05 İLE İLETİŞİME GEÇİN])",
-                rule2: "2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.",
-                rule3: "3. Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.",
-                rule4: "4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.",
-                important: "⚠️ ÖNEMLİ KURAL:",
-                desc: "Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için",
-                price: "20$ YÜKLEMELİDİR."
-            },
-            az: {
-                title: "MİNA SƏVİYYƏ QALDIRMA SİYASƏTİ",
-                appLevel: "TƏTBİQ SƏVİYYƏSİ",
-                minaLevel: "MİNA SƏVİYYƏSİ",
-                rule1: "1. Rəsmi komandamız əvvəlcə istifadəçinin əvvəlki tətbiq ID-sini təsdiqləyəcək və sonra səviyyə qaldırılacaq. (Təsdiqləmə üçün [TR01-TR05 İLƏ ƏLAQƏ SAXLAYIN])",
-                rule2: "2. Səviyyə qaldırılması hər həftənin Bazar ertəsi günü həyata keçiriləcək.",
-                rule3: "3. Bu siyahıda olmayan başqa bir tətbiqin ID-si varsa, %40-%50 arası səviyyə qaldırma tətbiq olunur.",
-                rule4: "4. Səviyyə qaldırma yalnız Mina-nı ilk dəfə yükləyən yeni istifadəçilər üçündür.",
-                important: "⚠️ VACİB QAYDA:",
-                desc: "Yeni istifadəçilər səviyyə qaldırma prosesini başlatmaq üçün",
-                price: "20$ YÜKLƏMƏLİDİR."
-            }
-        };
-
-        function changeLang(lang) {
-            // Başlık ve Tablo Başlıkları
-            document.getElementById('txt-main-title').innerText = langData[lang].title;
-            document.getElementById('th-app-level').innerText = langData[lang].appLevel;
-            document.getElementById('th-mina-level').innerText = langData[lang].minaLevel;
-            
-            // Kurallar
-            document.getElementById('rule-1').innerText = langData[lang].rule1;
-            document.getElementById('rule-2').innerText = langData[lang].rule2;
-            document.getElementById('rule-3').innerText = langData[lang].rule3;
-            document.getElementById('rule-4').innerText = langData[lang].rule4;
-            
-            // Patlayan Kısım
-            document.getElementById('txt-important').innerText = langData[lang].important;
-            document.getElementById('txt-process-desc').innerText = langData[lang].desc;
-            document.getElementById('txt-price').innerText = langData[lang].price;
-
-            // Buton aktiflik durumu
-            document.getElementById('btn-tr').classList.remove('active');
-            document.getElementById('btn-az').classList.remove('active');
-            document.getElementById('btn-' + lang).classList.add('active');
-        }
-    </script>
-</body>
-</html>
+                app: "UYGULAMA SEVİYESİ",
+                mina: "MİNA SEVİYESİ",
+                mapYoho: "YOHO -> MİNA",
+                mapHiya: "HIYA -> MİNA",
+                mapYoyo: "YOYO -> MİNA",
+                r1: "1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen [TR01-TR05 İLE İLETİŞİME GEÇİN])",
+                r2: "2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.",
+                r3: "3. Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.",
+                r4: "4. Seviye yükseltme, yalnızca
+        
