@@ -15,6 +15,26 @@
             font-family: 'Arial Black', sans-serif;
         }
 
+        /* Dil Butonları Stili */
+        .lang-container {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            padding: 8px 15px;
+            border: 3px solid #000;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 900;
+            background: #fff;
+            transition: 0.3s;
+        }
+        .lang-btn.active {
+            background: #1a237e;
+            color: #fff;
+        }
+
         .main-title {
             background-color: #1a237e;
             color: #ffffff;
@@ -54,13 +74,11 @@
             color: #000;
         }
 
-        /* Renkler */
         .bg-olive { background-color: #9eb830; }
         .bg-blue { background-color: #81d4fa; }
         .bg-yellow-light { background-color: #fff59d; }
         .bg-yellow-bright { background-color: #fff176; }
 
-        /* Kurallar Bölümü */
         .footer-text {
             max-width: 480px;
             margin-top: 25px;
@@ -73,9 +91,8 @@
 
         .rule-item { margin-bottom: 12px; line-height: 1.4; }
 
-        /* PATLAYAN 5. KURAL */
         .boom-rule {
-            background-color: #ff1744; /* Canlı Kırmızı */
+            background-color: #ff1744;
             color: white;
             padding: 20px;
             border: 5px solid #000;
@@ -96,59 +113,106 @@
             padding: 10px;
             border: 4px solid #000;
             border-radius: 10px;
-            transform: rotate(-2deg); /* Hafif yamuk duruş patlama havası verir */
+            transform: rotate(-2deg);
         }
 
         @keyframes explosion {
             0% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.05); filter: brightness(1.2); box-shadow: 0px 0px 40px rgba(255, 23, 68, 0.9); }
+            50% { transform: scale(1.05); filter: brightness(1.2); }
             100% { transform: scale(1); filter: brightness(1); }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-title">MİNA SEVİYE YÜKSELTME POLİTİKASI</div>
+    <div class="lang-container">
+        <div id="btn-tr" class="lang-btn active" onclick="changeLang('tr')">Türkiye 🇹🇷</div>
+        <div id="btn-az" class="lang-btn" onclick="changeLang('az')">Azərbaycan 🇦🇿</div>
+    </div>
+
+    <div class="main-title" id="txt-main-title">MİNA SEVİYE YÜKSELTME POLİTİKASI</div>
 
     <div class="table-container">
         <table>
-            <tr><th>YOHO SEVİYESİ</th><th class="bg-blue"></th><th>MİNA SEVİYESİ</th></tr>
-            <tr><td class="bg-olive">30-60</td><td rowspan="4" class="bg-blue">YOHO -> MİNA</td><td class="bg-yellow-bright">25</td></tr>
-            <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">35</td></tr>
-            <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">45</td></tr>
-            <tr><td class="bg-olive">100+</td><td class="bg-yellow-bright">50</td></tr>
-
-            <tr><th>HIYA SEVİYESİ</th><th class="bg-yellow-light"></th><th>MİNA SEVİYESİ</th></tr>
-            <tr><td class="bg-olive">20</td><td rowspan="4" class="bg-yellow-light">HIYA -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
-            <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">25</td></tr>
-            <tr><td class="bg-olive">40</td><td class="bg-yellow-bright">35</td></tr>
-            <tr><td class="bg-olive">50</td><td class="bg-yellow-bright">45</td></tr>
-
-            <tr><th>YOYO SEVİYESİ</th><th class="bg-blue"></th><th>MİNA SEVİYESİ</th></tr>
-            <tr><td class="bg-olive">20-40</td><td rowspan="4" class="bg-blue">YOYO -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
-            <tr><td class="bg-olive">41-60</td><td class="bg-yellow-bright">30</td></tr>
-            <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">40</td></tr>
-            <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">50</td></tr>
-
-            <tr><th>SOULCHILL</th><th class="bg-yellow-light"></th><th>MİNA SEVİYESİ</th></tr>
-            <tr><td class="bg-olive">20</td><td rowspan="3" class="bg-yellow-light">SOULCHILL -> MİNA</td><td class="bg-yellow-bright">20</td></tr>
-            <tr><td class="bg-olive">30</td><td class="bg-yellow-bright">30</td></tr>
-            <tr><td class="bg-olive">60</td><td class="bg-yellow-bright">60</td></tr>
+            <thead>
+                <tr>
+                    <th id="th-app-level">UYGULAMA SEVİYESİ</th>
+                    <th class="bg-blue"></th>
+                    <th id="th-mina-level">MİNA SEVİYESİ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="bg-olive">30-60</td><td rowspan="4" class="bg-blue">YOHO -> MİNA</td><td class="bg-yellow-bright">25</td></tr>
+                <tr><td class="bg-olive">61-80</td><td class="bg-yellow-bright">35</td></tr>
+                <tr><td class="bg-olive">81-100</td><td class="bg-yellow-bright">45</td></tr>
+                <tr><td class="bg-olive">100+</td><td class="bg-yellow-bright">50</td></tr>
+                </tbody>
         </table>
     </div>
 
     <div class="footer-text">
-        <div class="rule-item">1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen <strong>[TR01-TR05 İLE İLETİŞİME GEÇİN]</strong>)</div>
-        <div class="rule-item">2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.</div>
-        <div class="rule-item">3. Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.</div>
-        <div class="rule-item">4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.</div>
+        <div class="rule-item" id="rule-1">1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak...</div>
+        <div class="rule-item" id="rule-2">2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.</div>
+        <div class="rule-item" id="rule-3">3. Bu uygulamada verilen uygulamanın dışında başka bir uygulama...</div>
+        <div class="rule-item" id="rule-4">4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.</div>
         
         <div class="boom-rule">
-            <strong>⚠️ ÖNEMLİ KURAL:</strong><br>
-            Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için
-            <span class="price-box">20$ YÜKLEMELİDİR.</span>
+            <strong id="txt-important">⚠️ ÖNEMLİ KURAL:</strong><br>
+            <span id="txt-process-desc">Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için</span>
+            <span class="price-box" id="txt-price">20$ YÜKLEMELİDİR.</span>
         </div>
     </div>
 
+    <script>
+        const langData = {
+            tr: {
+                title: "MİNA SEVİYE YÜKSELTME POLİTİKASI",
+                appLevel: "UYGULAMA SEVİYESİ",
+                minaLevel: "MİNA SEVİYESİ",
+                rule1: "1. Resmi ekibimiz önce kullanıcının önceki uygulama kimliğini doğrulayacak ve ardından seviye yükseltme gerçekleşecektir. (Doğrulama için lütfen [TR01-TR05 İLE İLETİŞİME GEÇİN])",
+                rule2: "2. Seviye yükseltme her hafta Pazartesi günü yapılacaktır.",
+                rule3: "3. Bu uygulamada verilen uygulamanın dışında başka bir uygulamanın kimliği varsa, %40 ile %50 arasında seviye yükseltme uygulanır.",
+                rule4: "4. Seviye yükseltme, yalnızca Mina'yı ilk kez indiren yeni kullanıcılar içindir.",
+                important: "⚠️ ÖNEMLİ KURAL:",
+                desc: "Yeni kullanıcılar, seviye yükseltme sürecini başlatmak için",
+                price: "20$ YÜKLEMELİDİR."
+            },
+            az: {
+                title: "MİNA SƏVİYYƏ QALDIRMA SİYASƏTİ",
+                appLevel: "TƏTBİQ SƏVİYYƏSİ",
+                minaLevel: "MİNA SƏVİYYƏSİ",
+                rule1: "1. Rəsmi komandamız əvvəlcə istifadəçinin əvvəlki tətbiq ID-sini təsdiqləyəcək və sonra səviyyə qaldırılacaq. (Təsdiqləmə üçün [TR01-TR05 İLƏ ƏLAQƏ SAXLAYIN])",
+                rule2: "2. Səviyyə qaldırılması hər həftənin Bazar ertəsi günü həyata keçiriləcək.",
+                rule3: "3. Bu siyahıda olmayan başqa bir tətbiqin ID-si varsa, %40-%50 arası səviyyə qaldırma tətbiq olunur.",
+                rule4: "4. Səviyyə qaldırma yalnız Mina-nı ilk dəfə yükləyən yeni istifadəçilər üçündür.",
+                important: "⚠️ VACİB QAYDA:",
+                desc: "Yeni istifadəçilər səviyyə qaldırma prosesini başlatmaq üçün",
+                price: "20$ YÜKLƏMƏLİDİR."
+            }
+        };
+
+        function changeLang(lang) {
+            // Başlık ve Tablo Başlıkları
+            document.getElementById('txt-main-title').innerText = langData[lang].title;
+            document.getElementById('th-app-level').innerText = langData[lang].appLevel;
+            document.getElementById('th-mina-level').innerText = langData[lang].minaLevel;
+            
+            // Kurallar
+            document.getElementById('rule-1').innerText = langData[lang].rule1;
+            document.getElementById('rule-2').innerText = langData[lang].rule2;
+            document.getElementById('rule-3').innerText = langData[lang].rule3;
+            document.getElementById('rule-4').innerText = langData[lang].rule4;
+            
+            // Patlayan Kısım
+            document.getElementById('txt-important').innerText = langData[lang].important;
+            document.getElementById('txt-process-desc').innerText = langData[lang].desc;
+            document.getElementById('txt-price').innerText = langData[lang].price;
+
+            // Buton aktiflik durumu
+            document.getElementById('btn-tr').classList.remove('active');
+            document.getElementById('btn-az').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
 </body>
 </html>
